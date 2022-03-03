@@ -1,3 +1,11 @@
+Firstly, we find the next kth permutation using next_permutation which is an inbuilt function .
+Then , we think greedily and try to put every digit to its correct position and count the swaps needed for each and place the digit in front and similarly traverse for the rest of the digits.
+
+e.g. we have num=1234 , k=5
+then the required number will be 1432
+then after first iteration it will remain the same as 1==1
+on 2!=4 we will count 2 swaps and put 4 in its correct position then num becomes 1423.. similarly we will do for the upcoming digits.
+
 class Solution {
 public:
 int getMinSwaps(string num, int k) {
