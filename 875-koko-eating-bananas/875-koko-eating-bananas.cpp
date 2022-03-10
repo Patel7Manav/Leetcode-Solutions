@@ -22,7 +22,6 @@ public:
         while(lo<=hi)
         {
             int mi=lo+(hi-lo)/2;
-            cout<<mi<<" ";
             if(issafe(piles,h,mi))
             {
                 ans=mi;
