@@ -4,11 +4,11 @@ public:
         {
             if(ind==candidates.size())
             {
+                return;
+            }
             if(target==0)
             {
                 ans.push_back(a);
-            
-            }
                 return;
             }
             if(target>=candidates[ind])
