@@ -1,10 +1,10 @@
 class Solution {
 public:
-      void nqueen(int col,set<vector<string>>&ans,vector<string>&a,vector<int>&row,vector<int>&ud,vector<int>&ld,int n)
+      void nqueen(int col,vector<vector<string>>&ans,vector<string>&a,vector<int>&row,vector<int>&ud,vector<int>&ld,int n)
     {
         if(col==n)
         {
-            ans.insert(a);
+            ans.push_back(a);
             return;
         }
         for(int i=0;i<n;i++)
@@ -24,7 +24,7 @@ public:
         }
     }
     int totalNQueens(int n) {
-        set<vector<string>>ans;
+        vector<vector<string>>ans;
         vector<string>a(n);
         string s(n,'.');
         for(int i=0;i<n;i++)
