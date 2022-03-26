@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void solve(vector<vector<int>>&grid,int &ans,int curr,int row,int col)
+    void solve(vector<vector<int>>&grid,int &ans,int &curr,int row,int col)
     {
         
         if(row<0 || row>=grid.size() || col<0 || col>=grid[0].size() || grid[row][col]==0)
@@ -17,13 +17,13 @@ public:
         curr-=rest;
     }
     int getMaximumGold(vector<vector<int>>& grid) {
-       int ans=0;
+       int ans=0,curr=0;
         for(int i=0;i<grid.size();i++)
         {
             for(int j=0;j<grid[0].size();j++)
             {
              if(grid[i][j]!=0)   
-                solve(grid,ans,0,i,j);
+                solve(grid,ans,curr,i,j);
             }
         }
         return ans;
