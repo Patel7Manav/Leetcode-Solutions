@@ -29,6 +29,7 @@ public:
         vector<string>ans;
         string curr="";
          solve(digits,0,curr,ans,m);
+        cout<<ans.size();
         return ans;
     }
 };
