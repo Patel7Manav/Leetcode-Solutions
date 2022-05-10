@@ -17,6 +17,6 @@ public:
             return 0;
         if(n==2)
             return 2;
-       return 1+solve(n,1,1);
+       return solve(n,0,1);
     }
 };
