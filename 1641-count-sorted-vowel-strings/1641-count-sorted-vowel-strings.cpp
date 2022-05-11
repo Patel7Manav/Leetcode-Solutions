@@ -3,7 +3,7 @@ public:
     int solve(vector<char>&arr,int n,string curr,int ind,int len,vector<vector<int>>&dp)
     {
         if(len==n)
-        {   cout<<curr<<" ";
+        {  
             return 1;
         }
         if(dp[ind][len]!=-1)
