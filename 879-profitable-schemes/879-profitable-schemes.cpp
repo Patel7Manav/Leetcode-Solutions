@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[101][101][2000];
+    int dp[101][101][101];
     int solve(vector<int>&group,vector<int>&profit,int n,int mp,int i,int curr)
     {   
         if(i>=group.size())
@@ -13,7 +13,7 @@ public:
             return dp[n][i][curr];
         int pick=0;
         if(group[i]<=n)
-           pick=solve(group,profit,n-group[i],mp,i+1,curr+profit[i]);
+           pick=solve(group,profit,n-group[i],mp,i+1,min(mp,curr+profit[i]));
         int nopick=solve(group,profit,n,mp,i+1,curr);
         return dp[n][i][curr]=(pick%1000000007+nopick%1000000007)%1000000007;
     }
