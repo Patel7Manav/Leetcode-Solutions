@@ -1,34 +1,23 @@
 class Solution {
 public:
-    set<vector<int>>ans;
-    void generate(vector<int>nums,vector<int>a,int ind)
+    vector<vector<int>> ans;
+    
+    void sub(vector<int> &nums, int i, vector<int> temp)
     {
-        if(ind==nums.size())
+        if(i==nums.size())
         {
-            ans.insert(a);
+            ans.push_back(temp);
             return;
         }
-        for(int i=ind;i<nums.size();i++)
-        {
-            generate(nums,a,i+1);
-            a.push_back(nums[i]);
-            generate(nums,a,i+1);
-            a.pop_back();
-        }
+        
+        sub(nums, i+1, temp);
+        temp.push_back(nums[i]);
+        sub(nums, i+1, temp);
     }
+    
     vector<vector<int>> subsets(vector<int>& nums) {
-      vector<int>a;
-        for(int i=0;i<nums.size();i++)
-        {   a.push_back(nums[i]);
-            generate(nums,a,i+1);
-         a.pop_back();
-        }
-        vector<vector<int>>res;
-        for(auto x:ans)
-        { 
-         res.push_back(x);
-        }
-        res.push_back({});
-        return res;
+        vector<int> temp;       
+        sub(nums, 0, temp); // or sub(nums, 0, vector<int> {});
+        return ans;
     }
 };
