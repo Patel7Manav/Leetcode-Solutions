@@ -1,7 +1,9 @@
 class Solution {
 public:
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
-      int m=image.size(),n=image[0].size();
+      if(image[sr][sc]==color)
+          return image;
+        int m=image.size(),n=image[0].size();
        vector<vector<int>>vis(m,vector<int>(n,-1));
         queue<pair<int,int>>q;
         int temp=image[sr][sc];
