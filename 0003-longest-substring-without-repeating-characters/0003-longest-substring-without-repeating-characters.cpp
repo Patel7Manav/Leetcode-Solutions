@@ -10,7 +10,7 @@ public:
                  ans=max(ans,i-last-1);
                     last=max(last,m[s[i]]);
                     m[s[i]]=i;
-                cout<<ans<<" ";
+    
                 }
                 else
                     m[s[i]]=i;
