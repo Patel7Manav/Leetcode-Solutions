@@ -1,33 +1,33 @@
 class Solution {
 public:
-    static bool comp(const vector<int>&a, const vector<int>&b)
-    {
-        if(a[2]<b[2])
-            return true;
-        else if(a[2]>b[2])
-            return false;
-        else 
-        {
-            if(a[3]<b[3])
-                return true;
-            else if(a[3]>b[3])
-                return false;
-            else
-            {
-                if(a[0]<b[0])
-                    return true;
-                else if(a[0]>b[0])
-                    return false;
-                else
-                {
-                    if(a[1]<b[1])
-                        return true;
-                    else
-                        return false;
-                }
-            }
-        }
-    }
+    // static bool comp(const vector<int>&a, const vector<int>&b)
+    // {
+    //     if(a[2]<b[2])
+    //         return true;
+    //     else if(a[2]>b[2])
+    //         return false;
+    //     else 
+    //     {
+    //         if(a[3]<b[3])
+    //             return true;
+    //         else if(a[3]>b[3])
+    //             return false;
+    //         else
+    //         {
+    //             if(a[0]<b[0])
+    //                 return true;
+    //             else if(a[0]>b[0])
+    //                 return false;
+    //             else
+    //             {
+    //                 if(a[1]<b[1])
+    //                     return true;
+    //                 else
+    //                     return false;
+    //             }
+    //         }
+    //     }
+    // }
     vector<vector<int>> highestRankedKItems(vector<vector<int>>& grid, vector<int>& pricing, vector<int>& start, int k) {
        int m=grid.size(),n=grid[0].size();
         vector<vector<int>>dis(m,vector<int>(n,-1));
@@ -73,21 +73,22 @@ public:
             {       vector<int>temp;
                 if(dis[i][j]>=0)
                 {
-                    temp.push_back(i);
-                    temp.push_back(j);
+                    
                     temp.push_back(dis[i][j]);
                     temp.push_back(grid[i][j]);
+                    temp.push_back(i);
+                      temp.push_back(j);
                     arr.push_back(temp);
                 }
             }
         }
-        sort(arr.begin(),arr.end(),comp);
+        sort(arr.begin(),arr.end());
         vector<vector<int>>ans;
         for(int i=0;i<k && i<arr.size();i++)
         {
             vector<int>temp;
-            temp.push_back(arr[i][0]);
-            temp.push_back(arr[i][1]);
+            temp.push_back(arr[i][2]);
+            temp.push_back(arr[i][3]);
             ans.push_back(temp);
         }
         return ans;
