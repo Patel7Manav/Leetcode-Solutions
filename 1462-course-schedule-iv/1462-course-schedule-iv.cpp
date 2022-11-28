@@ -11,7 +11,7 @@ public:
         {
             adj[pr[i][1]].push_back(pr[i][0]);
         }
-        vector<set<int>>rel(numCourses);
+        vector<unordered_set<int>>rel(numCourses);
         
        for(int i=0;i<numCourses;i++)
        {  
