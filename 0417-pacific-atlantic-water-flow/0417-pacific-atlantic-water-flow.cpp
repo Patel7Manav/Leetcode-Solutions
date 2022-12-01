@@ -1,3 +1,8 @@
+struct pair_hash {
+    inline std::size_t operator()(const std::pair<int,int> & v) const {
+        return v.first*31+v.second;
+    }
+};
 class Solution {
 public:
     vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights) {
@@ -5,7 +10,8 @@ public:
         int m=heights.size(),n=heights[0].size();
         vector<vector<int>>vis(m,vector<int>(n,0));
         queue<pair<int,int>>q;
-       set<pair<int,int>>s;
+       std::unordered_set< std::pair<int, int>,  pair_hash> s;
+
         for(int i=0;i<m;i++)
         {
             q.push({i,0});
